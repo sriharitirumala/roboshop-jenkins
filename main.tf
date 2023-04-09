@@ -5,8 +5,8 @@ resource "jenkins_folder" "folders" {
 
 resource "jenkins_job" "job" {
   count    = length(var.jobs)
-  name     = lookup(element(var.jobs, count.index), "name", null)
-  folder   = lookup(element(var.jobs, count.index), "folder", null)
+  name     = "/job/${lookup(element(var.jobs, count.index), "name", null)}"
+  folder   = "/job/${lookup(element(var.jobs, count.index), "folder", null)}"
   template = templatefile("${path.module}/sb-job.xml", {
     repo_url = lookup(element(var.jobs, count.index), "repo_url", null)
   })
