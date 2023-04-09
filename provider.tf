@@ -1,3 +1,14 @@
+
+# Provide Hashicorp Registry Details
+terraform {
+  required_providers {
+    jenkins = {
+      source = "registry.terraform.io/taiidani/jenkins"
+    }
+  }
+}
+
+
 # Configure the Jenkins Provider
 provider "jenkins" {
   server_url = "http://172.31.3.167:8080"
