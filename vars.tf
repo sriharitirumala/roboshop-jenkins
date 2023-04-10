@@ -11,6 +11,5 @@ variable "jobs" {
     { name = "user", folder = "CI-Pipeline", repo_url = "https://github.com/sriharitirumala/user" },
     { name = "shipping", folder = "CI-Pipeline", repo_url = "https://github.com/sriharitirumala/shipping" },
     { name = "payment", folder = "CI-Pipeline", repo_url = "https://github.com/sriharitirumala/payment" }
-
   ]
 }
