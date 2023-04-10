@@ -13,3 +13,8 @@ variable "jobs" {
     { name = "payment", folder = "CI-Pipeline", repo_url = "https://github.com/sriharitirumala/payment" }
   ]
 }
+
+variable "force" {
+  default = false
+}
+
