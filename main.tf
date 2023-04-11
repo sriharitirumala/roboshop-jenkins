@@ -31,3 +31,14 @@ resource "aws_route53_record" "jenkins" {
   ttl     = 30
   records = [data.aws_instance.jenkins.public_ip]
 }
+
+
+#######################################################should be done in .xml file#####################################
+#change https code to ${repo_url} to fetch automatically
+##Delete all  the .plugins in above code and the view should be above
+###mention token as above given
+####   template = templatefile("${path.module}/sb-job.xml", {
+#repo_url = lookup(element(var.jobs, count.index), "repo_url", null)
+#name     = lookup(element(var.jobs, count.index), "name", null)
+#})
+######this needs to be same in roboshop-jenkins/main.tf  ######
