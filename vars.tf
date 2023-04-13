@@ -15,9 +15,6 @@ variable "jobs" {
 }
 
 
-variable "s-jobs" {
-  default = []
-}
 
 variable "m-jobs" {
   default = []
