@@ -15,10 +15,10 @@ resource "jenkins_job" "s-jobs" {
   })
 
 
-#  lifecycle {
-#    ignore_changes = [ template ]
-#
-#  }
+  lifecycle {
+    ignore_changes = [ template ]
+
+  }
 }
 
 resource "jenkins_job" "m-jobs" {
@@ -32,10 +32,10 @@ resource "jenkins_job" "m-jobs" {
     name     = lookup(element(var.m-jobs, count.index), "name", null)
   })
 
-  #  lifecycle {
-  #    ignore_changes = [ template ]
-  #
-  #  }
+    lifecycle {
+      ignore_changes = [ template ]
+
+    }
 }
 
 
