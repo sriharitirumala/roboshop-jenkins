@@ -3,15 +3,15 @@ resource "jenkins_folder" "folders" {
   name =  element(var.folders, count.index )
 }
 
-resource "jenkins_job" "u-jobs" {
+resource "jenkins_job" "a-jobs" {
   depends_on = [jenkins_folder.folders]
-  count    = length(var.u-jobs)
-  name     = lookup(element(var.u-jobs, count.index), "name", null)
-  folder   = "/job/${lookup(element(var.u-jobs, count.index), "folder", null)}"
+  count    = length(var.a-jobs)
+  name     = lookup(element(var.a-jobs, count.index), "name", null)
+  folder   = "/job/${lookup(element(var.a-jobs, count.index), "folder", null)}"
 
   template = templatefile("${path.module}/sb-job.xml", {
-    repo_url = lookup(element(var.u-jobs, count.index), "repo_url", null)
-    name     = lookup(element(var.u-jobs, count.index), "name", null)
+    repo_url = lookup(element(var.a-jobs, count.index), "repo_url", null)
+    name     = lookup(element(var.a-jobs, count.index), "name", null)
   })
 
 
@@ -21,15 +21,15 @@ resource "jenkins_job" "u-jobs" {
   }
 }
 
-resource "jenkins_job" "n-jobs" {
+resource "jenkins_job" "o-jobs" {
   depends_on = [jenkins_folder.folders]
-  count    = length(var.n-jobs)
-  name     = lookup(element(var.n-jobs, count.index), "name", null)
-  folder   = "/job/${lookup(element(var.n-jobs, count.index), "folder", null)}"
+  count    = length(var.o-jobs)
+  name     = lookup(element(var.o-jobs, count.index), "name", null)
+  folder   = "/job/${lookup(element(var.o-jobs, count.index), "folder", null)}"
 
   template = templatefile("${path.module}/mb-job.xml", {
-    repo_url = lookup(element(var.n-jobs, count.index), "repo_url", null)
-    name     = lookup(element(var.n-jobs, count.index), "name", null)
+    repo_url = lookup(element(var.o-jobs, count.index), "repo_url", null)
+    name     = lookup(element(var.o-jobs, count.index), "name", null)
   })
 
     lifecycle {
