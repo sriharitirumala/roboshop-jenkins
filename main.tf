@@ -21,15 +21,15 @@ resource "jenkins_job" "u-jobs" {
   }
 }
 
-resource "jenkins_job" "m-jobs" {
+resource "jenkins_job" "n-jobs" {
   depends_on = [jenkins_folder.folders]
-  count    = length(var.m-jobs)
-  name     = lookup(element(var.m-jobs, count.index), "name", null)
-  folder   = "/job/${lookup(element(var.m-jobs, count.index), "folder", null)}"
+  count    = length(var.n-jobs)
+  name     = lookup(element(var.n-jobs, count.index), "name", null)
+  folder   = "/job/${lookup(element(var.n-jobs, count.index), "folder", null)}"
 
   template = templatefile("${path.module}/mb-job.xml", {
-    repo_url = lookup(element(var.m-jobs, count.index), "repo_url", null)
-    name     = lookup(element(var.m-jobs, count.index), "name", null)
+    repo_url = lookup(element(var.n-jobs, count.index), "repo_url", null)
+    name     = lookup(element(var.n-jobs, count.index), "name", null)
   })
 
     lifecycle {
