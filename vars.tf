@@ -16,7 +16,7 @@ variable "m-jobs" {
 
 
 
-variable "s-jobs" {
+variable "u-jobs" {
   default = [
     { name = "roboshop", folder = "Infra", repo_url = "https://github.com/sriharitirumala/roboshop-infra" }
   ]

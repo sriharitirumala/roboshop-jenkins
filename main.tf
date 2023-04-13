@@ -3,15 +3,15 @@ resource "jenkins_folder" "folders" {
   name =  element(var.folders, count.index )
 }
 
-resource "jenkins_job" "s-jobs" {
+resource "jenkins_job" "u-jobs" {
   depends_on = [jenkins_folder.folders]
-  count    = length(var.s-jobs)
-  name     = lookup(element(var.s-jobs, count.index), "name", null)
-  folder   = "/job/${lookup(element(var.s-jobs, count.index), "folder", null)}"
+  count    = length(var.u-jobs)
+  name     = lookup(element(var.u-jobs, count.index), "name", null)
+  folder   = "/job/${lookup(element(var.u-jobs, count.index), "folder", null)}"
 
   template = templatefile("${path.module}/sb-job.xml", {
-    repo_url = lookup(element(var.s-jobs, count.index), "repo_url", null)
-    name     = lookup(element(var.s-jobs, count.index), "name", null)
+    repo_url = lookup(element(var.u-jobs, count.index), "repo_url", null)
+    name     = lookup(element(var.u-jobs, count.index), "name", null)
   })
 
 
