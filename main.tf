@@ -3,7 +3,7 @@ resource "jenkins_folder" "folders" {
   name =  element(var.folders, count.index )
 }
 
-resource "jenkins_job" "s-jobs" {
+resource "jenkins_job" "s-job" {
   depends_on = [jenkins_folder.folders]
   count    = length(var.s-jobs)
   name     = lookup(element(var.s-jobs, count.index), "name", null)
@@ -21,7 +21,7 @@ resource "jenkins_job" "s-jobs" {
 #  }
 }
 
-resource "jenkins_job" "m-jobs" {
+resource "jenkins_job" "m-job" {
   depends_on = [jenkins_folder.folders]
   count    = length(var.m-jobs)
   name     = lookup(element(var.jobs, count.index), "name", null)
