@@ -19,6 +19,10 @@ variable "s-jobs" {
   default = []
 }
 
+variable "m-jobs" {
+  default = []
+}
+
 
 variable "force" {
   default = false
