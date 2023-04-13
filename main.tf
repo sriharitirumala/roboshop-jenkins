@@ -24,7 +24,7 @@ resource "jenkins_job" "s-jobs" {
 resource "jenkins_job" "m-jobs" {
   depends_on = [jenkins_folder.folders]
   count    = length(var.m-jobs)
-  name     = lookup(element(var.jobs, count.index), "name", null)
+  name     = lookup(element(var.m-jobs, count.index), "name", null)
   folder   = "/job/${lookup(element(var.m-jobs, count.index), "folder", null)}"
 
   template = templatefile("${path.module}/mb-job.xml", {
