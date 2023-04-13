@@ -14,6 +14,12 @@ variable "jobs" {
   ]
 }
 
+
+variable "s-jobs" {
+  default = []
+}
+
+
 variable "force" {
   default = false
 }
