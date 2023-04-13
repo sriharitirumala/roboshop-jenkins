@@ -14,6 +14,7 @@ resource "jenkins_job" "s-job" {
     name     = lookup(element(var.s-jobs, count.index), "name", null)
   })
 
+
 #  lifecycle {
 #    ignore_changes = [ template ]
 #
